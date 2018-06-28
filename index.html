@@ -37,12 +37,13 @@
         .content {
             background: #f1f1f1;
             border: 2px dotted #ccc;
-            -webkit-border-radius: 2px;
-            -moz-border-radius: 2px;
             border-radius: 2px;
             padding: 10px;
             min-height: 300px;
             /*Initialize Flex*/
+            -js-display: flex;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
         }
 
@@ -51,73 +52,103 @@
         }
 
         .content_wrap {
+            -ms-flex-wrap: wrap;
             flex-wrap: wrap
         }
 
         .content_wrap--no {
+            -ms-flex-wrap: nowrap;
             flex-wrap: nowrap
         }
 
         .content_wrap--reverse {
+            -ms-flex-wrap: wrap-reverse;
             flex-wrap: wrap-reverse
         }
 
         .content_justify--flex-start {
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
             justify-content: flex-start/* initial top and left*/
         }
 
         .content_justify--flex-end {
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
             justify-content: flex-end/* initial top and right*/
         }
 
         .content_justify--space-around {
+            -ms-flex-pack: distribute;
             justify-content: space-around/* initial top and left - distributed based on the width of the first element*/
         }
 
         .content_justify--space-between {
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
             justify-content: space-between/* initial top and left - distributes starting from the center to the ends*/
         }
 
         .content_align-items--flex-start {
+            -webkit-box-align: start;
+            -ms-flex-align: start;
             align-items: flex-start/* vertical align top*/
         }
 
         .content_align-items--flex-end {
+            -webkit-box-align: end;
+            -ms-flex-align: end;
             align-items: flex-end/* vertical align bottom*/
         }
 
         .content_align-items--center {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
             align-items: center/* vertical align center*/
         }
 
         .content_align-items--strech {
+            -webkit-box-align: strech;
+            -ms-flex-align: strech;
             align-items: strech/* vertical align same height*/
         }
 
         .content_align-items--baseline {
+            -webkit-box-align: baseline;
+            -ms-flex-align: baseline;
             align-items: baseline/* content-based alignment */
         }
 
         .content_row {
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
             flex-direction: row/* direction - row*/
         }
 
         .content_row--reverse {
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: reverse;
+            -ms-flex-direction: row-reverse;
             flex-direction: row-reverse/* direction - row-reverse*/
         }
 
         .content_column {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
             flex-direction: column/* direction - column*/
         }
 
         .content_column--reverse {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: reverse;
+            -ms-flex-direction: column-reverse;
             flex-direction: column-reverse/* direction - column reverse*/
         }
 
         .item {
             background: #fff;
-            -webkit-border-radius: 2px;
-            -moz-border-radius: 2px;
             border-radius: 2px;
             height: 100px;
             width: 100px;
@@ -125,8 +156,49 @@
             padding: 8px;
         }
 
+        .item--order-1 {
+            -webkit-box-ordinal-group: 2;
+            -ms-flex-order: 1;
+            order: 1
+        }
+
+        .item--order-2 {
+            -webkit-box-ordinal-group: 3;
+            -ms-flex-order: 2;
+            order: 2
+        }
+
+        .item--order-3 {
+            -webkit-box-ordinal-group: 4;
+            -ms-flex-order: 3;
+            order: 3
+        }
+
+        .item--order-4 {
+            -webkit-box-ordinal-group: 5;
+            -ms-flex-order: 4;
+            order: 4
+        }
+
+        .item--flex-grow {
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1/* Occupies the remainder of the width of the div*/
+        }
+
+        .item--flex-shrink {
+            -ms-flex-negative: 1;
+            flex-shrink: 1/* Shrinks the size of the div*/
+        }
+
+        .item--flex-basis {
+            -ms-flex-preferred-size: 65px;
+            flex-basis: 65px/* Defines a width of each element if it does not have*/
+        }
+
         .item_card {
             color: black;
+            -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         }
 
@@ -142,6 +214,8 @@
 
 <body>
     <h1>Example FlexBox CSS3</h1>
+    <p>
+        Example of FlexBox CSS3 framework applications.</p>
     <ol>
         <li>
             <a href="#content_row">Flex Direction in row</a>
@@ -191,7 +265,26 @@
         <li>
             <a href="#content_align-items--baseline">Flex Row Content Vertical Align Items - Baseline (Content-based alignment)</a>
         </li>
+        <li>
+            <a href="#item--order">Flex Items Order</a>
+        </li>
+        <li>
+            <a href="#item--flex-grow-shrink-basis">Flex Items (Grow, Shrinks, Basis)</a>
+        </li>
     </ol>
+    <h2>Useful links</h2>
+    <ul>
+        <li>
+            <a href="http://autoprefixer.github.io/">Autoprefixer (other browsers)</a>
+        </li>
+        <li>
+            <a href="https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/">Flexbox Playground (flex-box constructor)</a>
+        </li>
+        <li>
+            <a href="https://github.com/jonathantneal/flexibility">Polyfill (flex-box) - IE 9-</a>
+        </li>
+    </ul>
+
 
     <h2 id="content_row">Flex Direction in row</h2>
     <section class="content content_row">
@@ -307,6 +400,20 @@
         <article class="item item_card item_height--auto">03</article>
         <article class="item item_card item_height--auto">04</article>
     </section>
+    <h2 id="item--order">Flex Items Order</h2>
+    <section class="content content_row">
+        <article class="item item_card item--order-3">01</article>
+        <article class="item item_card item--order-4">02</article>
+        <article class="item item_card item--order-1">03</article>
+        <article class="item item_card item--order-2">04</article>
+    </section>
+    <h2 id="item--flex-grow-shrink-basis">Flex Items (Grow, Shrinks, Basis)</h2>
+    <section class="content content_row">
+        <article class="item item_card item--flex-grow">01 - Grow</article>
+        <article class="item item_card item--flex-basis">02 - Basis with 65px</article>
+        <article class="item item_card item--flex-basis">03 - Basis with 65px</article>
+        <article class="item item_card item--flex-basis">04 - Basis with 65px</article>
+    </section>
 
     <div class="back_to_top">
         <a href="#top">
@@ -316,6 +423,7 @@
         </a>
 
     </div>
+    <script src="flexibility.js"></script>
 </body>
 
 </html>
