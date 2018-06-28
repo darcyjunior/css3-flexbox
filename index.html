@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FlexBox - CSS3</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <style>
+        body {
+            position: relative;
+            height: auto;
+        }
+
+        h2 {
+            color: #ccc
+        }
+
+        .back_to_top {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+        }
+
+        .back_to_top>a {
+            text-decoration: none;
+            color: black
+        }
+
+        .back_to_top--content {
+            padding: 10px 6px;
+            font-size: 30px;
+        }
+
+        .content {
+            background: #f1f1f1;
+            border: 2px dotted #ccc;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            padding: 10px;
+            min-height: 300px;
+            /*Initialize Flex*/
+            display: flex;
+        }
+
+        .content_break {
+            width: 500px
+        }
+
+        .content_wrap {
+            flex-wrap: wrap
+        }
+
+        .content_wrap--no {
+            flex-wrap: nowrap
+        }
+
+        .content_wrap--reverse {
+            flex-wrap: wrap-reverse
+        }
+
+        .content_justify--flex-start {
+            justify-content: flex-start/* initial top and left*/
+        }
+
+        .content_justify--flex-end {
+            justify-content: flex-end/* initial top and right*/
+        }
+
+        .content_justify--space-around {
+            justify-content: space-around/* initial top and left - distributed based on the width of the first element*/
+        }
+
+        .content_justify--space-between {
+            justify-content: space-between/* initial top and left - distributes starting from the center to the ends*/
+        }
+
+        .content_align-items--flex-start {
+            align-items: flex-start/* vertical align top*/
+        }
+
+        .content_align-items--flex-end {
+            align-items: flex-end/* vertical align bottom*/
+        }
+
+        .content_align-items--center {
+            align-items: center/* vertical align center*/
+        }
+
+        .content_align-items--strech {
+            align-items: strech/* vertical align same height*/
+        }
+
+        .content_align-items--baseline {
+            align-items: baseline/* content-based alignment */
+        }
+
+        .content_row {
+            flex-direction: row/* direction - row*/
+        }
+
+        .content_row--reverse {
+            flex-direction: row-reverse/* direction - row-reverse*/
+        }
+
+        .content_column {
+            flex-direction: column/* direction - column*/
+        }
+
+        .content_column--reverse {
+            flex-direction: column-reverse/* direction - column reverse*/
+        }
+
+        .item {
+            background: #fff;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            height: 100px;
+            width: 100px;
+            margin: 1rem;
+            padding: 8px;
+        }
+
+        .item_card {
+            color: black;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .content_break--item {
+            width: 250px
+        }
+
+        .item_height--auto {
+            height: auto
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Example FlexBox CSS3</h1>
+    <ol>
+        <li>
+            <a href="#content_row">Flex Direction in row</a>
+        </li>
+        <li>
+            <a href="#content_column">Flex Direction in column</a>
+        </li>
+        <li>
+            <a href="#content_row--reverse">Flex Direction in row reverse</a>
+        </li>
+        <li>
+            <a href="#content_column--reverse">Flex Direction in column reverse</a>
+        </li>
+        <li>
+            <a href="#content_wrap--no">Flex Row no Wrap (no break)</a>
+        </li>
+        <li>
+            <a href="#content_wrap">Flex Row Wrap (break)</a>
+        </li>
+        <li>
+            <a href="#content_wrap--reverse">Flex Row Wrap Reverse (break)</a>
+        </li>
+        <li>
+            <a href="#content_justify--flex-start">Flex Row Justify Content Start</a>
+        </li>
+        <li>
+            <a href="#content_justify--flex-end">Flex Row Justify Content End (Top - Right)</a>
+        </li>
+        <li>
+            <a href="#content_justify--space-around">Flex Row Justify Content Space Around</a>
+        </li>
+        <li>
+            <a href="#content_justify--space-between">Flex Row Justify Content Space Between</a>
+        </li>
+        <li>
+            <a href="#content_align-items--flex-start">Flex Row Content Vertical Align Items - Flex Start</a>
+        </li>
+        <li>
+            <a href="#content_align-items--flex-end">Flex Row Content Vertical Align Items - Flex End</a>
+        </li>
+        <li>
+            <a href="#content_align-items--center">Flex Row Content Vertical Align Items - Center</a>
+        </li>
+        <li>
+            <a href="#content_align-items--strech">Flex Row Content Vertical Align Items - Strech (Same height)</a>
+        </li>
+        <li>
+            <a href="#content_align-items--baseline">Flex Row Content Vertical Align Items - Baseline (Content-based alignment)</a>
+        </li>
+    </ol>
+
+    <h2 id="content_row">Flex Direction in row</h2>
+    <section class="content content_row">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_column">Flex Direction in column</h2>
+    <section class="content content_column">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_row--reverse">Flex Direction in row reverse</h2>
+    <section class="content content_row--reverse">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_column--reverse">Flex Direction in column reverse</h2>
+    <section class="content content_column--reverse">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_wrap--no">Flex Row no Wrap (no break) - width 500px</h2>
+    <section class="content content_break content_wrap--no content_row">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_wrap">Flex Row Wrap (break) - width 500px</h2>
+    <section class="content content_break content_wrap content_row">
+        <article class="content_break--item item item_card">01</article>
+        <article class="content_break--item item item_card">02</article>
+        <article class="content_break--item item item_card">03</article>
+        <article class="content_break--item item item_card">04</article>
+    </section>
+    <h2 id="content_wrap--reverse">Flex Row Wrap Reverse (break) - width 500px</h2>
+    <section class="content content_break content_wrap--reverse content_row">
+        <article class="content_break--item item item_card">01</article>
+        <article class="content_break--item item item_card">02</article>
+        <article class="content_break--item item item_card">03</article>
+        <article class="content_break--item item item_card">04</article>
+    </section>
+    <h2 id="content_justify--flex-start">Flex Row Justify Content Start (Top - Left)</h2>
+    <section class="content content_justify--flex-start content_wrap--no content_row">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_justify--flex-end">Flex Row Justify Content End (Top - Right)</h2>
+    <section class="content content_justify--flex-end content_wrap--no content_row">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_justify--space-around">Flex Row Justify Content Space Around</h2>
+    <p>Distributed based on the width of the first element.</p>
+    <section class="content content_justify--space-around content_wrap--no content_row">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_justify--space-between">Flex Row Justify Content Space Between</h2>
+    <p>Distributes starting from the center to the ends.</p>
+    <section class="content content_justify--space-between content_wrap--no content_row">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_align-items--flex-start">Flex Row Content Vertical Align Items - Flex Start</h2>
+    <section class="content content_align-items--flex-start content_wrap--no content_row">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_align-items--flex-end">Flex Row Content Vertical Align Items - Flex End</h2>
+    <section class="content content_align-items--flex-end content_wrap--no content_row">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_align-items--center">Flex Row Content Vertical Align Items - Center</h2>
+    <section class="content content_align-items--center content_wrap--no content_row">
+        <article class="item item_card">01</article>
+        <article class="item item_card">02</article>
+        <article class="item item_card">03</article>
+        <article class="item item_card">04</article>
+    </section>
+    <h2 id="content_align-items--strech">Flex Row Content Vertical Align Items - Strech (Same height)</h2>
+    <section class="content content_align-items--strech content_wrap--no content_row">
+        <article class="item item_card item_height--auto">01</article>
+        <article class="item item_card item_height--auto">02</article>
+        <article class="item item_card item_height--auto">03</article>
+        <article class="item item_card item_height--auto">04</article>
+    </section>
+    <h2 id="content_align-items--baseline">Flex Row Content Vertical Align Items - Baseline (Content-based alignment)</h2>
+    <section class="content content_align-items--baseline content_wrap--no content_row">
+        <article class="item item_card item_height--auto">01</article>
+        <article class="item item_card item_height--auto">02</article>
+        <article class="item item_card item_height--auto">03</article>
+        <article class="item item_card item_height--auto">04</article>
+    </section>
+
+    <div class="back_to_top">
+        <a href="#top">
+            <span class="back_to_top--content">
+                <i class="fas fa-arrow-alt-circle-up"></i>
+            </span>
+        </a>
+
+    </div>
+</body>
+
+</html>
